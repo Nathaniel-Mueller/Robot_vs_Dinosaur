@@ -7,3 +7,7 @@ class Fleet:
     def addRobot(self, botToAdd):
         self.units_available.append (botToAdd)
         print (f"{botToAdd.name} added to the {self.type} fleet!")
+        
+    def killRobot(self, botThatDied):
+        self.units_available.remove(botThatDied)
+        print (f"{botThatDied} has died and is no longer part of the {self.type} fleet.")
