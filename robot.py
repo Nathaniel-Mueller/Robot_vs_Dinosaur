@@ -13,15 +13,15 @@ class Robot:
         self.active_weapon = sword
 
     def chooseWeapon (self, newWeapon):
-        if newWeapon == "sword":
+        if newWeapon == "Sword":
             self.active_weapon = self.weapons[0]
-            print (f"{self.active_weapon} selected!")
-        elif newWeapon == "rocket launcher":
+            print (f"{self.active_weapon.name} selected!")
+        elif newWeapon == "Rocket Launcher":
             self.active_weapon = self.weapons[1]
-            print (f"{self.active_weapon} selected!")
-        elif newWeapon == "laser":
+            print (f"{self.active_weapon.name} selected!")
+        elif newWeapon == "Laser":
             self.active_weapon = self.weapons[2]
-            print(f"{self.active_weapon} selected!")
+            print(f"{self.active_weapon.name} selected!")
 
     def attack (self, dinosaur):
         dinosaur.health -= self.active_weapon.attack_power
