@@ -6,4 +6,4 @@ class Fleet:
 
     def addRobot(self, botToAdd):
         self.units_available.append (botToAdd)
-        print (f"{botToAdd} added to the {self.type} fleet!")
+        print (f"{botToAdd.name} added to the {self.type} fleet!")
