@@ -10,4 +10,4 @@ class Herd:
 
     def killDinosaur(self, dinoThatDied):
         self.units_available.remove(dinoThatDied)
-        print (f"{dinoThatDied} has died and is no longer part of the {self.type} herd.")
+        print (f"{dinoThatDied.name} has died and is no longer part of the {self.type} herd.")

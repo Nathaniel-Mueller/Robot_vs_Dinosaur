@@ -10,4 +10,4 @@ class Fleet:
         
     def killRobot(self, botThatDied):
         self.units_available.remove(botThatDied)
-        print (f"{botThatDied} has died and is no longer part of the {self.type} fleet.")
+        print (f"{botThatDied.name} has died and is no longer part of the {self.type} fleet.")
