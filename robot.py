@@ -1,9 +1,9 @@
 from weapon import Weapon
 
-
 sword = Weapon("Sword", 75)
 rocketLauncher = Weapon("Rocket Launcher", 250)
 laser = Weapon("Laser", 150)
+
 class Robot:
 
     def __init__(self, robotName):
@@ -24,4 +24,4 @@ class Robot:
             print(f"{self.active_weapon} selected!")
 
     def attack (self, dinosaur):
-        pass
+        dinosaur.health -= self.active_weapon.attack_power
