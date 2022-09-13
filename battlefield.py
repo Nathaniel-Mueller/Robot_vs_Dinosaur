@@ -32,14 +32,15 @@ class Battlefield:
 
     def battle_phase(self):
         a = 0
-        while a < len(robotFleet.units_available) or a < len(dinoHerd.units_available):
+        while a < len(robotFleet.units_available) and a < len(dinoHerd.units_available):
             attackingRobot = random.choice(robotFleet.units_available)
             randomWeapon = random.choice(attackingRobot.weapons)
             defendingRobot = random.choice(robotFleet.units_available)
             attackingDino = random.choice(dinoHerd.units_available)
             defendingDino = random.choice(dinoHerd.units_available)
             attackingRobot.attack(defendingDino)
-            print (f"{defendingDino.name} has {defendingDino.health} health left!")
+            print(f"{attackingRobot.name} has attacked {defendingDino.name}!")
+            print (f"{defendingDino.name} has {defendingDino.health} health left.")
             attackingRobot.chooseWeapon(randomWeapon.name)
             if defendingDino.health <= 0:
                 dinoHerd.killDinosaur(defendingDino)
