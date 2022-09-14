@@ -6,7 +6,7 @@ class Fleet:
 
     def addRobot(self, botToAdd):
         self.units_available.append (botToAdd)
-        print (f"{botToAdd.name} has been added to the {self.type} fleet!")
+        print (f"With a shocking {botToAdd.health} health and with 3 amazing weapons, {botToAdd.name} has been added to the {self.type} fleet!")
         
     def killRobot(self, botThatDied):
         self.units_available.remove(botThatDied)
