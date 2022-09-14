@@ -21,7 +21,9 @@ def checkIfDead (input):                        # Function to check if the activ
 
         elif input in robotFleet.units_available:
             robotFleet.killRobot(input)
-        
+
+def wait ():
+    time.sleep(1)
 class Battlefield:
 
     def __init__(self):
@@ -41,10 +43,10 @@ class Battlefield:
     
     def display_welcome(self):
         print ("Hello! Welcome to the robot vs dinosaur showdown! Today we have an exciting battle between a herd of dinos and a fleet of robots.")
-        time.sleep(5)
-        timeTilStart = 5
+        print ("")
+        timeTilStart = 10
         while timeTilStart > 0:
-            print(f"Battle beginning in {timeTilStart} seconds...",end="\r")
+            print(f"The battle will begin in {timeTilStart} second(s)...",end="\r")
             time.sleep(1)
             timeTilStart -= 1
 
@@ -54,9 +56,12 @@ class Battlefield:
         randomWeapon = random.choice(attackingRobot.weapons)    # Selects a random weapon for the chosen robot to use
         attackingDino = random.choice(dinoHerd.units_available)     # Selects a random dino to participate in this phase of the battle
         attackingRobot.chooseWeapon(randomWeapon.name)      # Changes the robot's active weapon to the randomly chosen one
+        wait()
         print(f"{attackingRobot.name} and {attackingDino.name} are attacking each other!")
         attackingRobot.attack(attackingDino)
+        wait()
         print (f"{attackingDino.name} has {attackingDino.health} health left.")
+        wait()
         checkIfDead(attackingDino)
         if attackingDino.health <= 0:   # This makes the dino being attacked unable to retaliate if it dies after being attacked by the robot
             print(f"{attackingDino.name} was defeated before it had a chance to attack {attackingRobot.name}.")
