@@ -14,8 +14,8 @@ robotOne = Robot("Droid")
 robotTwo = Robot("Wall-E")
 robotThree = Robot("Zenyatta")
 
-def checkIfDead (input):
-    if input.health <= 0:
+def checkIfDead (input):                        # Function to check if the active participants in the battle_phase are dead
+    if input.health <= 0:                       # and to remove them from their respective herd or fleet
         if input in dinoHerd.units_available:
             dinoHerd.killDinosaur(input)
 
@@ -35,20 +35,21 @@ class Battlefield:
         dinoHerd.addDinosaur(velociraptor) ## Velociraptor is 0
         dinoHerd.addDinosaur(tRex) ## Tyrannosaurus Rex is 1
         dinoHerd.addDinosaur(stegosaurus) ## Stegosaurus is 2
+        
     
     def display_welcome(self):
         print ("Hello! Welcome to the robot vs dinosaur showdown! Today we have an exciting battle between a herd of dinos and a fleet of robots.")
 
     def battle_phase(self):
-        attackingRobot = random.choice(robotFleet.units_available)
-        randomWeapon = random.choice(attackingRobot.weapons)
-        attackingDino = random.choice(dinoHerd.units_available)
-        attackingRobot.chooseWeapon(randomWeapon.name)
+        attackingRobot = random.choice(robotFleet.units_available)    # Selects a random robot to participate in this phase of the battle
+        randomWeapon = random.choice(attackingRobot.weapons)    # Selects a random weapon for the chosen robot to use
+        attackingDino = random.choice(dinoHerd.units_available)     # Selects a random dino to participate in this phase of the battle
+        attackingRobot.chooseWeapon(randomWeapon.name)      # Changes the robot's active weapon to the randomly chosen one
         print(f"{attackingRobot.name} and {attackingDino.name} are attacking each other!")
         attackingRobot.attack(attackingDino)
         print (f"{attackingDino.name} has {attackingDino.health} health left.")
         checkIfDead(attackingDino)
-        if attackingDino.health <= 0:
+        if attackingDino.health <= 0:   # This makes the dino being attacked unable to retaliate if it dies after being attacked by the robot
             print(f"{attackingDino.name} was defeated before it had a chance to attack {attackingRobot.name}.")
             print(f"{attackingRobot.name} has {attackingRobot.health} health remaining.")
             pass
