@@ -1,4 +1,5 @@
 from weapon import Weapon
+import time as t
 
 sword = Weapon("Sword", 75)
 rocketLauncher = Weapon("Rocket Launcher", 250)
@@ -14,6 +15,7 @@ class Robot:
 
     def chooseWeapon (self, newWeapon):
         print (f"{self.name} is selecting a weapon!")
+        t.sleep(1)
         if newWeapon == "Sword":
             self.active_weapon = self.weapons[0]
             print (f"{self.active_weapon.name} selected!")
