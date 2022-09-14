@@ -28,11 +28,10 @@ def wait ():
 class Battlefield:
 
     def __init__(self):
-        self.fleet = robotFleet
-        self.herd = dinoHerd
         self.round = 1
 
     def run_game(self):
+        self.display_welcome()
         robotFleet.addRobot(robotOne) ## Droid is 0
         wait()
         robotFleet.addRobot(robotTwo) ## Wall-E is 1
@@ -46,6 +45,9 @@ class Battlefield:
         dinoHerd.addDinosaur(stegosaurus) ## Stegosaurus is 2
         print ("")
         time.sleep(3)
+        while len(dinoHerd.units_available) > 0 and len(robotFleet.units_available) > 0:
+            self.battle_phase()
+        self.display_winner()
         
     
     def display_welcome(self):
@@ -53,7 +55,7 @@ class Battlefield:
         print ("")
         timeTilStart = 10
         while timeTilStart > 0:
-            print(f"The battle will begin in {timeTilStart} second(s)...",end="\r")
+            print(f"The battle will begin in {timeTilStart} second(s)..",end="\r")
             time.sleep(1)
             timeTilStart -= 1
 
