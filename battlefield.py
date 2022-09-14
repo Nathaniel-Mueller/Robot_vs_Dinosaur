@@ -24,18 +24,25 @@ def checkIfDead (input):                        # Function to check if the activ
 
 def wait ():
     time.sleep(1)
+
 class Battlefield:
 
     def __init__(self):
         self.fleet = robotFleet
         self.herd = dinoHerd
+        self.round = 1
 
     def run_game(self):
         robotFleet.addRobot(robotOne) ## Droid is 0
+        wait()
         robotFleet.addRobot(robotTwo) ## Wall-E is 1
+        wait()
         robotFleet.addRobot(robotThree) ## Zenyatta is 2
+        wait()
         dinoHerd.addDinosaur(velociraptor) ## Velociraptor is 0
+        wait()
         dinoHerd.addDinosaur(tRex) ## Tyrannosaurus Rex is 1
+        wait()
         dinoHerd.addDinosaur(stegosaurus) ## Stegosaurus is 2
         print ("")
         time.sleep(3)
@@ -50,8 +57,8 @@ class Battlefield:
             time.sleep(1)
             timeTilStart -= 1
 
-
     def battle_phase(self):
+        print(f"Round {self.round}:")
         attackingRobot = random.choice(robotFleet.units_available)    # Selects a random robot to participate in this phase of the battle
         randomWeapon = random.choice(attackingRobot.weapons)    # Selects a random weapon for the chosen robot to use
         attackingDino = random.choice(dinoHerd.units_available)     # Selects a random dino to participate in this phase of the battle
@@ -71,6 +78,7 @@ class Battlefield:
             attackingDino.attack(attackingRobot)
             print (f"{attackingRobot.name} has {attackingRobot.health} health left.")
             checkIfDead(attackingRobot)
+        self.round += 1
         print ("")
         time.sleep(3)
 
