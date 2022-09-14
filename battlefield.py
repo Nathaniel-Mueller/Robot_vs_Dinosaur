@@ -7,9 +7,9 @@ import random
 
 robotFleet = Fleet()
 dinoHerd = Herd()
-velociraptor = Dinosaur("Velociraptor", 75)
-tRex = Dinosaur("Tyrannosaurus Rex", 350)
-stegosaurus = Dinosaur("Stegosaurus", 200)
+velociraptor = Dinosaur("Velociraptor", 200)
+tRex = Dinosaur("Tyrannosaurus Rex", 400)
+stegosaurus = Dinosaur("Stegosaurus", 300)
 robotOne = Robot("Droid")
 robotTwo = Robot("Wall-E")
 robotThree = Robot("Zenyatta")
@@ -43,14 +43,19 @@ class Battlefield:
         attackingRobot = random.choice(robotFleet.units_available)
         randomWeapon = random.choice(attackingRobot.weapons)
         attackingDino = random.choice(dinoHerd.units_available)
+        attackingRobot.chooseWeapon(randomWeapon.name)
         print(f"{attackingRobot.name} and {attackingDino.name} are attacking each other!")
         attackingRobot.attack(attackingDino)
         print (f"{attackingDino.name} has {attackingDino.health} health left.")
         checkIfDead(attackingDino)
-        attackingDino.attack(attackingRobot)
-        print (f"{attackingRobot.name} has {attackingRobot.health} health left.")
-        checkIfDead(attackingRobot)
-        attackingRobot.chooseWeapon(randomWeapon.name)
+        if attackingDino.health <= 0:
+            print(f"{attackingDino.name} was defeated before it had a chance to attack {attackingRobot.name}.")
+            print(f"{attackingRobot.name} has {attackingRobot.health} health remaining.")
+            pass
+        else:
+            attackingDino.attack(attackingRobot)
+            print (f"{attackingRobot.name} has {attackingRobot.health} health left.")
+            checkIfDead(attackingRobot)
 
     def display_winner(self):
         if len(robotFleet.units_available) == 0:
