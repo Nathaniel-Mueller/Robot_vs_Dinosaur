@@ -13,6 +13,7 @@ class Robot:
         self.active_weapon = sword
 
     def chooseWeapon (self, newWeapon):
+        print (f"{self.name} is selecting a weapon!")
         if newWeapon == "Sword":
             self.active_weapon = self.weapons[0]
             print (f"{self.active_weapon.name} selected!")
