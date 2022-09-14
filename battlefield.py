@@ -1,4 +1,4 @@
-from tabnanny import check
+import time
 from herd import Herd
 from fleet import Fleet
 from dinosaur import Dinosaur
@@ -35,10 +35,19 @@ class Battlefield:
         dinoHerd.addDinosaur(velociraptor) ## Velociraptor is 0
         dinoHerd.addDinosaur(tRex) ## Tyrannosaurus Rex is 1
         dinoHerd.addDinosaur(stegosaurus) ## Stegosaurus is 2
+        print ("")
+        time.sleep(3)
         
     
     def display_welcome(self):
         print ("Hello! Welcome to the robot vs dinosaur showdown! Today we have an exciting battle between a herd of dinos and a fleet of robots.")
+        time.sleep(5)
+        timeTilStart = 5
+        while timeTilStart > 0:
+            print(f"Battle beginning in {timeTilStart} seconds...",end="\r")
+            time.sleep(1)
+            timeTilStart -= 1
+
 
     def battle_phase(self):
         attackingRobot = random.choice(robotFleet.units_available)    # Selects a random robot to participate in this phase of the battle
@@ -57,6 +66,8 @@ class Battlefield:
             attackingDino.attack(attackingRobot)
             print (f"{attackingRobot.name} has {attackingRobot.health} health left.")
             checkIfDead(attackingRobot)
+        print ("")
+        time.sleep(3)
 
     def display_winner(self):
         if len(robotFleet.units_available) == 0:
