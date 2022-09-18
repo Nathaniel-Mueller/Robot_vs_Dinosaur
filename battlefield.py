@@ -53,18 +53,18 @@ class Battlefield:
     def display_welcome(self):
         print ("Hello! Welcome to the robot vs dinosaur showdown! Today we have an exciting battle between a herd of dinos and a fleet of robots.")
         print ("")
-        timeTilStart = 10
-        while timeTilStart > 0:
-            print(f"The battle will begin in {timeTilStart} second(s)..",end="\r")
-            time.sleep(1)
-            timeTilStart -= 1
+        #timeTilStart = 10
+        #while timeTilStart > 0:
+        #    print(f"The battle will begin in {timeTilStart} second(s)..",end="\r")
+        #    time.sleep(1)
+         #   timeTilStart -= 1
 
     def battle_phase(self):
         print(f"Round {self.round}:")
         attackingRobot = random.choice(robotFleet.units_available)    # Selects a random robot to participate in this phase of the battle
         randomWeapon = random.choice(attackingRobot.weapons)    # Selects a random weapon for the chosen robot to use
         attackingDino = random.choice(dinoHerd.units_available)     # Selects a random dino to participate in this phase of the battle
-        attackingRobot.chooseWeapon(randomWeapon.name)      # Changes the robot's active weapon to the randomly chosen one
+        attackingRobot.chooseWeapon(randomWeapon)      # Changes the robot's active weapon to the randomly chosen one
         wait()
         print(f"{attackingRobot.name} and {attackingDino.name} are attacking each other!")
         attackingRobot.attack(attackingDino)
