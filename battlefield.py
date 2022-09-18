@@ -53,11 +53,11 @@ class Battlefield:
     def display_welcome(self):
         print ("Hello! Welcome to the robot vs dinosaur showdown! Today we have an exciting battle between a herd of dinos and a fleet of robots.")
         print ("")
-        #timeTilStart = 10
-        #while timeTilStart > 0:
-        #    print(f"The battle will begin in {timeTilStart} second(s)..",end="\r")
-        #    time.sleep(1)
-         #   timeTilStart -= 1
+        timeTilStart = 10
+        while timeTilStart > 0:
+            print(f"The battle will begin in {timeTilStart} second(s)..",end="\r")
+            time.sleep(1)
+            timeTilStart -= 1
 
     def battle_phase(self):
         print(f"Round {self.round}:")
