@@ -25,17 +25,6 @@ class Battlefield:
             
     def run_game(self):
         self.display_welcome()
-        self.robotFleet.addRobot(self.robotFleet.robotOne) ## Droid is 0
-        wait()
-        self.robotFleet.addRobot(self.robotFleet.robotTwo) ## Wall-E is 1
-        wait()
-        self.robotFleet.addRobot(self.robotFleet.robotThree) ## Zenyatta is 2
-        wait()
-        self.dinoHerd.addDinosaur(self.dinoHerd.velociraptor) ## Velociraptor is 0
-        wait()
-        self.dinoHerd.addDinosaur(self.dinoHerd.tRex) ## Tyrannosaurus Rex is 1
-        wait()
-        self.dinoHerd.addDinosaur(self.dinoHerd.stegosaurus) ## Stegosaurus is 2
         print ("")
         time.sleep(3)
         while len(self.dinoHerd.units_available) > 0 and len(self.robotFleet.units_available) > 0:
