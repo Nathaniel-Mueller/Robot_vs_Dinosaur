@@ -51,6 +51,7 @@ class Battlefield:
         print(f"{attackingRobot.name} and {attackingDino.name} are attacking each other!")
         attackingRobot.attack(attackingDino)
         wait()
+        print(f"{attackingRobot.name} has attacked {attackingDino.name} with {attackingRobot.active_weapon.name} dealing {attackingRobot.active_weapon.attack_power} damage!")
         print (f"{attackingDino.name} has {attackingDino.health} health left.")
         wait()
         self.checkIfDead(attackingDino)
@@ -60,6 +61,7 @@ class Battlefield:
             pass
         else:
             attackingDino.attack(attackingRobot)
+            print (f"{attackingDino.name} has hit {attackingRobot.name}, dealing {attackingDino.attack_power} damage!")
             print (f"{attackingRobot.name} has {attackingRobot.health} health left.")
             self.checkIfDead(attackingRobot)
         self.round += 1
