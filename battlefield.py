@@ -11,8 +11,6 @@ class Battlefield:
 
     def __init__(self):
         self.round = 1
-        self.robotFleet = Fleet()
-        self.dinoHerd = Herd()
 
     def checkIfDead (self, input):                        # Function to check if the active participants in the battle_phase are dead
         if input.health <= 0:                             # and to remove them from their respective herd or fleet
@@ -40,6 +38,8 @@ class Battlefield:
             print(f"The battle will begin in {timeTilStart} second(s)..",end="\r")
             time.sleep(1)
             timeTilStart -= 1
+        self.robotFleet = Fleet()
+        self.dinoHerd = Herd()
 
     def battle_phase(self):
         print(f"Round {self.round}:")
