@@ -1,8 +1,15 @@
+from dinosaur import Dinosaur
+
 class Herd:
     
     def __init__(self):
         self.type = "Dinosaur"
         self.units_available = []
+        
+    def createDino (self):
+        velociraptor = Dinosaur("Velociraptor", 200)
+        tRex = Dinosaur("Tyrannosaurus Rex", 400)
+        stegosaurus = Dinosaur("Stegosaurus", 300)
 
     def addDinosaur(self, dinoToAdd):
         self.units_available.append(dinoToAdd)

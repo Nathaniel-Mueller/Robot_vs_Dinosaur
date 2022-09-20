@@ -7,6 +7,7 @@ sword = Weapon("Sword", 75)
 gun = Weapon("Gun", 100)
 laser = Weapon("Laser", 150)
 rocketLauncher = Weapon("Rocket Launcher", 250)
+deathRay = Weapon("Death Ray", 1000)
 
 weaponsList = [knife, sword, gun, laser, rocketLauncher]
 
